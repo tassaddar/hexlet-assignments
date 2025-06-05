@@ -5,7 +5,12 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import exercise.model.Post;
 import exercise.Data;
@@ -19,7 +24,7 @@ public class PostsController {
 
     @GetMapping("/users/{id}/posts")
     ResponseEntity<List<Post>> findUserPosts(@PathVariable int id) {
-        var result = posts.stream().filter(p -> p.getUserId() == id ).toList();
+        var result = posts.stream().filter(p -> p.getUserId() == id).toList();
         ResponseEntity<List<Post>> response = null;
         if (result.isEmpty()) {
             response = ResponseEntity.ok().body(Collections.emptyList());
