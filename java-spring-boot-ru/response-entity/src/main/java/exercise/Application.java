@@ -56,8 +56,8 @@ public class Application {
     @GetMapping("/posts/{id}")
     public ResponseEntity<Optional<Post>> getPost(@PathVariable String id) {
         var post = posts.stream().filter(p -> p.getId().equals(id)).findFirst();
-        return post.isPresent() ? ResponseEntity.ok().body(post) :
-                ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        return post.isPresent() ? ResponseEntity.ok().body(post)
+                : ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
     }
 
     @PutMapping("/posts/{id}")
