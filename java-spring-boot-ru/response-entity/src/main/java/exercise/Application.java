@@ -1,26 +1,23 @@
 package exercise;
 
-import java.awt.print.Pageable;
-import java.net.URI;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-
+import exercise.model.Post;
+import lombok.Setter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import exercise.model.Post;
-import lombok.Setter;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 
 @SpringBootApplication
 @RestController
 public class Application {
     // Хранилище добавленных постов
     @Setter
-    private static  List<Post> posts = Data.getPosts();
+    private static List<Post> posts = Data.getPosts();
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
