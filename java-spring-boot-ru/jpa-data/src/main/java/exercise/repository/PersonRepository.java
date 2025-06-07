@@ -5,8 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import exercise.model.Person;
 
-import java.util.List;
-
 // BEGIN
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Long> {
