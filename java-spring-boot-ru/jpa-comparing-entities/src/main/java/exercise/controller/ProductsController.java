@@ -38,7 +38,7 @@ public class ProductsController {
         if (productRepository.findByTitleAndPrice(product.getTitle(), product.getPrice()).isEmpty()) {
             try {
                 productRepository.saveAndFlush(product);
-            } catch(Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
